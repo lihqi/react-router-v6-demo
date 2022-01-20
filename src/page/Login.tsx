@@ -9,7 +9,8 @@ const Login = () => {
   const loginIn = (): void => {
     setisLogin(!isLogin);
     setTimeout(() => {
-      setisLogin(!isLogin);
+      setisLogin((isLogin) => !isLogin);
+      window.localStorage.setItem("login", JSON.stringify(true));
       navigate("/", { replace: true });
     }, 1000);
   };

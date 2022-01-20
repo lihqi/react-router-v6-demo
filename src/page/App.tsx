@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Routers, { IRouters } from "../utils/Routes";
 import LayoutContent from "../components/LayoutContent";
 import Login from "./Login";
+import NotFount from "../components/NotFount";
 
 const App = () => {
   const routesLoad = (Routers: IRouters[]): any => {
@@ -20,7 +21,8 @@ const App = () => {
         <Route path="/" element={<LayoutContent />}>
           {routesLoad(Routers)}
         </Route>
-        <Route path="*" element={<div>NotFount</div>} />
+        <Route path="/login/ssologin" element={<div>单点登录</div>}></Route>
+        <Route path="*" element={<NotFount />} />
       </Routes>
     </div>
   );

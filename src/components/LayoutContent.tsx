@@ -1,13 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Layout, { Content, Footer } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import LeftSider from "../components/LeftSider";
 import LayoutHeader from "../components/LayoutHeader";
 import Nprogress from "./Nprogress";
 
 const LayoutContent = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isLogin = JSON.parse(window.localStorage.getItem("login") as string);
+    if (!isLogin) {
+      navigate("/login", { replace: true });
+    }
+  }, [navigate]);
 
   const onCollapse = () => {
     setCollapsed(!collapsed);

@@ -19,6 +19,7 @@ const LayoutHeader = () => {
     }
   );
   const loginOut = () => {
+    window.localStorage.setItem("login", JSON.stringify(false));
     navitage("/login", { replace: true });
   };
   return (
