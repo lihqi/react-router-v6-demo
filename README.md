@@ -41,4 +41,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-`蓝大牛后台管理系统`
+`LFF后台管理系统`
