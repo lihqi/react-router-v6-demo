@@ -1,14 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./style/index.css";
+import App from "./page/App";
+import reportWebVitals from "./reportWebVitals";
+// Router
+import { BrowserRouter as Router } from "react-router-dom";
+// react-query
+import { ReactQueryDevtools } from "react-query/devtools";
+import { QueryClient, QueryClientProvider } from "react-query";
+// dayjs
+import "dayjs/locale/zh-cn";
+import * as dayjs from "dayjs";
+import isLeapYear from "dayjs/plugin/isLeapYear";
+
+dayjs.extend(isLeapYear);
+dayjs.locale("zh-cn");
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  // <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <Router>
+      <App />
+    </Router>
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>,
+  // </React.StrictMode>
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
