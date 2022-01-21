@@ -12,7 +12,7 @@ const LayoutContent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLogin = localStorage.getItem("login");
+    const isLogin = JSON.parse(localStorage.getItem("login"));
     if (!isLogin) {
       navigate("/login", { replace: true });
     }
