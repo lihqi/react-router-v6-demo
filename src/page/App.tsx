@@ -3,24 +3,10 @@ import Routers, { IRouters } from "../Routes/Routes";
 import LayoutContent from "../components/LayoutContent";
 import Login from "./Login";
 import NotFount from "../components/NotFount";
-import { getCurrentTime, localStorage } from "../utils";
-import { useEffect } from "react";
+import { useTheme } from "../hooks/useTheme";
 
 const App = () => {
-  useEffect(() => {
-    const theme = localStorage.getItem("theme");
-    if (!!theme) {
-      if (theme === "dark") {
-        document.documentElement.classList.add(theme);
-      }
-    } else {
-      if (getCurrentTime()) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }
-  }, []);
+  useTheme();
 
   // 动态加载路由
   const routesLoad = (Routers: IRouters[]): any => {
