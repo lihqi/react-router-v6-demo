@@ -5,13 +5,14 @@ import { Suspense, useEffect, useState } from "react";
 import LeftSider from "../components/LeftSider";
 import LayoutHeader from "../components/LayoutHeader";
 import Nprogress from "./Nprogress";
+import { localStorage } from "../utils";
 
 const LayoutContent = () => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLogin = JSON.parse(window.localStorage.getItem("login") as string);
+    const isLogin = localStorage.getItem("login");
     if (!isLogin) {
       navigate("/login", { replace: true });
     }

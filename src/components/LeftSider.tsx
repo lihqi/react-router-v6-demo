@@ -3,7 +3,7 @@ import SubMenu from "antd/lib/menu/SubMenu";
 
 import { FC, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Routers, { IRouters } from "../utils/Routes";
+import Routers, { IRouters } from "../Routes/Routes";
 
 interface IProps {
   inlineCollapsed: boolean;

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import { queryCity } from "../api";
 import { useRef } from "react";
+import { localStorage } from "../utils";
 
 const LayoutHeader = () => {
   const cityRef = useRef("广州");
@@ -19,7 +20,7 @@ const LayoutHeader = () => {
     }
   );
   const loginOut = () => {
-    window.localStorage.setItem("login", JSON.stringify(false));
+    localStorage.setItem("login", false);
     navitage("/login", { replace: true });
   };
   return (
