@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import Layout, { Content, Footer } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
 import { Suspense, useEffect, useState } from "react";

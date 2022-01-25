@@ -12,7 +12,10 @@ const NotFount = () => {
           <Button type="primary" ghost onClick={() => window.history.back()}>
             返回上一页
           </Button>
-          <Button type="primary" onClick={() => navigate("/")}>
+          <Button
+            type="primary"
+            onClick={() => navigate("/", { replace: true })}
+          >
             首页
           </Button>
         </Space>
