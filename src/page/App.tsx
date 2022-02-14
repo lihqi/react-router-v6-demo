@@ -23,14 +23,7 @@ const App = () => {
   return (
     <div className="h-screen">
       <Routes>
-        <Route
-          path="/login"
-          element={
-            <Nprogress>
-              <Login />
-            </Nprogress>
-          }
-        />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/"
           element={
@@ -42,14 +35,7 @@ const App = () => {
           {routesLoad(Routers)}
         </Route>
         <Route path="/login/ssologin" element={<div>单点登录</div>}></Route>
-        <Route
-          path="*"
-          element={
-            <Nprogress>
-              <NotFount />
-            </Nprogress>
-          }
-        />
+        <Route path="*" element={<NotFount />} />
       </Routes>
     </div>
   );

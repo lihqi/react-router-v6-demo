@@ -7,8 +7,11 @@ const Nprogress = ({ children }: { children: ReactNode }) => {
   const nprogressRef = useRef<any>(nProgress.start());
   const location = useLocation();
   useEffect(() => {
-    nprogressRef.current = nProgress.done();
-  }, [location]);
+    console.log();
+    if (nprogressRef.current.status !== null) {
+      nprogressRef.current = nProgress.done();
+    }
+  }, [location.key]);
 
   return <>{children}</>;
 };
