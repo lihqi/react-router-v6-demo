@@ -4,8 +4,8 @@ import Sider from "antd/lib/layout/Sider";
 import { Suspense, useEffect, useState } from "react";
 import LeftSider from "../components/LeftSider";
 import LayoutHeader from "../components/LayoutHeader";
-import Nprogress from "./Nprogress";
 import { localStorage } from "../utils";
+import SpinTwitter from "./SpinTwitter";
 
 const LayoutContent = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -31,7 +31,7 @@ const LayoutContent = () => {
         <Layout>
           <LayoutHeader />
           <Content className="relative">
-            <Suspense fallback={<Nprogress />}>
+            <Suspense fallback={<SpinTwitter />}>
               <Outlet />
             </Suspense>
           </Content>

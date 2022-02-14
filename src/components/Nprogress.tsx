@@ -1,18 +1,16 @@
 import nProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-const Nprogress = () => {
+const Nprogress = ({ children }: { children: ReactNode }) => {
+  const nprogressRef = useRef<any>(nProgress.start());
   const location = useLocation();
   useEffect(() => {
-    nProgress.start();
-    return () => {
-      nProgress.done();
-    };
+    nprogressRef.current = nProgress.done();
   }, [location]);
 
-  return <></>;
+  return <>{children}</>;
 };
 
 export default Nprogress;
