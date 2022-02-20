@@ -10,15 +10,7 @@ const Home = () => {
       refetchOnWindowFocus: false,
     }
   );
-  return (
-    <>
-      {isLoading ? (
-        <SpinTwitter />
-      ) : (
-        <div>首页我也不知道写什么好啊，大佬啊</div>
-      )}
-    </>
-  );
+  return <>{isLoading ? <SpinTwitter /> : <div>准备开始</div>}</>;
 };
 
 export default Home;

@@ -4,6 +4,7 @@ import LayoutContent from "../components/LayoutContent";
 import Login from "./Login";
 import NotFount from "../components/NotFount";
 import { useTheme } from "../hooks/useTheme";
+import Nprogress from "../components/Nprogress";
 // import { CSSTransition } from "react-transition-group";
 
 const App = () => {
@@ -23,7 +24,14 @@ const App = () => {
     <div className="h-screen">
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<LayoutContent />}>
+        <Route
+          path="/"
+          element={
+            <Nprogress>
+              <LayoutContent />
+            </Nprogress>
+          }
+        >
           {routesLoad(Routers)}
         </Route>
         <Route path="/login/ssologin" element={<div>单点登录</div>}></Route>

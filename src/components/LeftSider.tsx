@@ -1,18 +1,16 @@
 import { Menu } from "antd";
+import Sider from "antd/lib/layout/Sider";
 import SubMenu from "antd/lib/menu/SubMenu";
 
-import { FC, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Routers, { IRouters } from "../Routes/Routes";
 
-interface IProps {
-  inlineCollapsed: boolean;
-}
-
 const rootSubmenuKeys = ["/details"];
 
-const LeftSider: FC<IProps> = ({ inlineCollapsed }) => {
+const LeftSider = memo(() => {
   const [openKeys, setOpenKeys] = useState<any[]>([]);
+  const [collapsed, setCollapsed] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -60,8 +58,11 @@ const LeftSider: FC<IProps> = ({ inlineCollapsed }) => {
     });
   };
 
+  const onCollapse = () => {
+    setCollapsed(!collapsed);
+  };
   return (
-    <>
+    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <div
         className="h-16 text-white text-3xl
        flex justify-center items-center
@@ -75,12 +76,12 @@ const LeftSider: FC<IProps> = ({ inlineCollapsed }) => {
         onOpenChange={onOpenChange}
         mode="inline"
         theme="dark"
-        inlineCollapsed={inlineCollapsed}
+        inlineCollapsed={collapsed}
       >
         {menuItem(Routers)}
       </Menu>
-    </>
+    </Sider>
   );
-};
+});
 
 export default LeftSider;

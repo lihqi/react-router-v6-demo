@@ -1,5 +1,16 @@
 import { useEffect } from "react";
-import { getCurrentTime, localStorage } from "../utils";
+import { localStorage } from "../utils";
+
+// 判断是否晚上来设置自动主题改变
+export const getCurrentTime = (): boolean => {
+  const date = new Date();
+  // 0-18时为light
+  if (date.getHours() >= 0 && date.getHours() < 18) {
+    return false;
+  } else {
+    return true;
+  }
+};
 
 export const useTheme = () => {
   //加载判断theme
