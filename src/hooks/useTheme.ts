@@ -4,7 +4,7 @@ import { getCurrentTime, localStorage } from "../utils";
 export const useTheme = () => {
   //加载判断theme
   useEffect(() => {
-    const theme = localStorage.getItem("theme");
+    const theme:string = localStorage.getItem("theme");
     if (!!theme) {
       if (theme === "dark") {
         document.documentElement.classList.add(theme);
