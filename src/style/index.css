@@ -38,16 +38,14 @@
 .my-node-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
+  transition: transform 0.25s ease-in-out 0.08s, opacity 0.25s ease-in-out 0.08s;
 }
 
 .my-node-exit {
-  opacity: 1;
-  transform: translateY(-20px);
+  visibility: visible;
 }
 
 .my-node-exit-active {
-  opacity: 0;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
+  visibility: hidden;
+  transition: visibility 1ms;
 }

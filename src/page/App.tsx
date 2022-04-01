@@ -1,15 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import Routers, { IRouters } from "../Routes/Routes";
+import Routers, { IRouters } from "../router/Routes";
 import LayoutContent from "../components/LayoutContent";
 import Login from "./Login";
 import NotFount from "../components/NotFount";
 import { useTheme } from "../hooks/useTheme";
 import Nprogress from "../components/Nprogress";
-// import { CSSTransition } from "react-transition-group";
 
 const App = () => {
   useTheme();
-
   // 动态加载路由
   const routesLoad = (Routers: IRouters[]): any => {
     return Routers.map(({ path, Component, children }: any) => {

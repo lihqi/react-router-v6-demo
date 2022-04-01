@@ -11,7 +11,7 @@ const Nprogress = ({ children }: { children: ReactNode }) => {
     if (nprogressRef.current.status !== null) {
       nprogressRef.current = nProgress.done();
     }
-  }, [location.key]);
+  }, [location.pathname]);
 
   return <>{children}</>;
 };

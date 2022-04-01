@@ -12,7 +12,7 @@ const Rules = lazy(() => import("../page/Rules"));
 export interface IRouters {
   path: string;
   name: string;
-  icon?: ReactNode;
+  Icon?: ReactNode;
   Component?: ReactNode;
   children?: IRouters[];
 }
@@ -21,13 +21,13 @@ const Routers: IRouters[] = [
   {
     path: "/",
     name: "Home",
-    icon: HomeOutlined,
+    Icon: HomeOutlined,
     Component: Home,
   },
   {
     path: "/details",
     name: "Details",
-    icon: AppstoreOutlined,
+    Icon: AppstoreOutlined,
     children: [
       {
         path: "/detail",
@@ -37,6 +37,7 @@ const Routers: IRouters[] = [
       {
         path: "/rules",
         name: "Rules",
+        Icon: "",
         Component: Rules,
       },
     ],
@@ -44,7 +45,7 @@ const Routers: IRouters[] = [
   {
     path: "/role",
     name: "Role",
-    icon: AppstoreAddOutlined,
+    Icon: AppstoreAddOutlined,
     Component: Role,
   },
 ];

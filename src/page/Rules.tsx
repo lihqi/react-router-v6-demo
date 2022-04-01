@@ -1,5 +1,5 @@
 const Rules = () => {
-  return <div>Rules</div>;
+  return <div className="h-full">Rules</div>;
 };
 
 export default Rules;

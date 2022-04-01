@@ -1,5 +1,5 @@
 const Role = () => {
-  return <div>Role</div>;
+  return <div className="h-full">Role</div>;
 };
 
 export default Role;

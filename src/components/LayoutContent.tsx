@@ -1,10 +1,10 @@
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import Layout, { Content, Footer } from "antd/lib/layout/layout";
 import { Suspense, useEffect } from "react";
 import LeftSider from "../components/LeftSider";
 import LayoutHeader from "../components/LayoutHeader";
 import { localStorage } from "../utils";
-import SpinTwitter from "./SpinTwitter";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const LayoutContent = () => {
   const navigate = useNavigate();
@@ -23,12 +23,25 @@ const LayoutContent = () => {
   );
 };
 const LayoutChildren = () => {
+  const transitionKey = useLocation();
+
   return (
-    <Layout>
+    <Layout className="relative">
       <LayoutHeader />
-      <Content className="relative">
-        <Suspense fallback={<SpinTwitter />}>
-          <Outlet />
+      <Content className="relative p-5">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              key={transitionKey.pathname}
+              classNames="my-node"
+              addEndListener={(node, done) =>
+                node.addEventListener("transitionend", done, false)
+              }
+              unmountOnExit
+            >
+              <Outlet />
+            </CSSTransition>
+          </TransitionGroup>
         </Suspense>
       </Content>
       <Footer className="text-gray-500 text-center select-none">

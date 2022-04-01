@@ -1,4 +1,4 @@
-export const queryCity = (city: string | undefined) =>
-  fetch(`https://api.muxiaoguo.cn/api/tianqi?city=${city}&type=1`)
+export const queryCity = (city?: string | undefined) =>
+  fetch(`http://jsonplaceholder.typicode.com/posts`)
     .then((res) => res.json())
     .then((res) => res);

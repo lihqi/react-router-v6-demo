@@ -4,7 +4,7 @@ import SubMenu from "antd/lib/menu/SubMenu";
 
 import { memo, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Routers, { IRouters } from "../Routes/Routes";
+import Routers, { IRouters } from "../router/Routes";
 
 const rootSubmenuKeys = ["/details"];
 
@@ -31,16 +31,16 @@ const LeftSider = memo(() => {
   };
   // 动态加载列
   const menuItem = (Routers: IRouters[]) => {
-    return Routers.map(({ path, name, icon: Icon, children }: any) => {
+    return Routers.map(({ path, name, Icon, children }: any) => {
       if (children) {
         return (
-          <SubMenu key={path} icon={<Icon />} title={name}>
+          <SubMenu key={path} icon={Icon ? <Icon /> : null} title={name}>
             {menuItem(children)}
           </SubMenu>
         );
       } else {
         return (
-          <Menu.Item key={path} icon={Icon && <Icon />}>
+          <Menu.Item key={path} icon={Icon ? <Icon /> : null}>
             <Link to={path}>{name}</Link>
           </Menu.Item>
         );
