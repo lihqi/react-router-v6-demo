@@ -1,10 +1,10 @@
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import Layout, { Content, Footer } from "antd/lib/layout/layout";
 import { Suspense, useEffect } from "react";
-import LeftSider from "../components/LeftSider";
-import LayoutHeader from "../components/LayoutHeader";
-import { localStorage } from "../utils";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import LayoutHeader from "./LayoutHeader";
+import { localStorage } from "../../utils";
+import LeftSider from "./LeftSider";
 
 const LayoutContent = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const LayoutChildren = () => {
       <LayoutHeader />
       <Content className="relative p-5">
         <Suspense fallback={<div>Loading...</div>}>
-          <TransitionGroup component={null}>
+          <TransitionGroup component={null} exit={false}>
             <CSSTransition
               key={transitionKey.pathname}
               classNames="my-node"

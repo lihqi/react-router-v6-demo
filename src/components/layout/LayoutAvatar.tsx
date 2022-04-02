@@ -2,7 +2,7 @@ import Avatar from "antd/lib/avatar/avatar";
 import { ExclamationCircleOutlined, UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import { localStorage } from "../utils";
+import { localStorage } from "../../utils";
 import confirm from "antd/lib/modal/confirm";
 
 const LayoutAvatar = () => {

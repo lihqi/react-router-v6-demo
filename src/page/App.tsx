@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Routers, { IRouters } from "../router/Routes";
-import LayoutContent from "../components/LayoutContent";
 import Login from "./Login";
 import NotFount from "../components/NotFount";
 import { useTheme } from "../hooks/useTheme";
 import Nprogress from "../components/Nprogress";
+import LayoutContent from "../components/layout/LayoutContent";
 
 const App = () => {
   useTheme();

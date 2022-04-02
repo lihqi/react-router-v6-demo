@@ -3,6 +3,7 @@ import { Button } from "antd";
 import { ChangeEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { localStorage } from "../../utils";
+import LoginFooter from "./LoginFooter";
 
 const Cright = () => {
   const navigate = useNavigate();
@@ -13,6 +14,14 @@ const Cright = () => {
   const UserRef = useRef<HTMLInputElement>(null);
   const PwdRef = useRef<HTMLInputElement>(null);
 
+  const UserFouce = () => {
+    setUserFouce(true);
+    UserRef.current?.focus();
+  };
+  const PwdFouce = () => {
+    setPwdFouce(true);
+    PwdRef.current?.focus();
+  };
   const userBlur = () => {
     if (!UserRef.current?.value) {
       setUserFouce(false);
@@ -23,15 +32,6 @@ const Cright = () => {
       setPwdFouce(false);
     }
   };
-  const UserFouce = () => {
-    setUserFouce(true);
-    UserRef.current?.focus();
-  };
-  const PwdFouce = () => {
-    setPwdFouce(true);
-    PwdRef.current?.focus();
-  };
-
   const subChange = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(UserRef.current?.value, PwdRef.current?.value);
@@ -45,15 +45,17 @@ const Cright = () => {
   return (
     <>
       <div className="w-full flex-shrink-0 flex flex-col sm:w-[400px]">
-        <div className="text-4xl text-center mb-8">Welcome Back :)</div>
-        <p
-          className="text-gray-500 my-4 text-center"
-          style={{ textIndent: "2rem" }}
-        >
-          欢迎来到蓝大牛后台管理系统！
-        </p>
+        <div>
+          <div className="text-4xl text-center mb-8">Welcome Back :)</div>
+          <p
+            className="text-gray-500 my-4 text-center"
+            style={{ textIndent: "2rem" }}
+          >
+            欢迎来到蓝大牛后台管理系统！
+          </p>
+        </div>
         {/* from */}
-        <form onSubmit={subChange} className="mt-5 space-y-5 flex-1">
+        <form onSubmit={subChange} className="mt-5 space-y-5">
           {/* User */}
           <div
             className={`h-14 px-2 flex items-center space-x-2 border-2 border-gray-400 rounded ${
@@ -115,10 +117,18 @@ const Cright = () => {
             </div>
           </div>
           {/* Submit */}
-          <Button type="primary" htmlType="submit">
-            确定
+          <Button
+            className="w-40"
+            type="primary"
+            htmlType="submit"
+            shape="round"
+            size="large"
+          >
+            登录
           </Button>
         </form>
+        {/* footer */}
+        <LoginFooter />
       </div>
     </>
   );

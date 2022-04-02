@@ -4,7 +4,7 @@ import SubMenu from "antd/lib/menu/SubMenu";
 
 import { memo, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Routers, { IRouters } from "../router/Routes";
+import Routers, { IRouters } from "../../router/Routes";
 
 const rootSubmenuKeys = ["/details"];
 
