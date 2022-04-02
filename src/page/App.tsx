@@ -20,16 +20,10 @@ const App = () => {
   };
   return (
     <div className="h-screen">
+      <Nprogress />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/"
-          element={
-            <Nprogress>
-              <LayoutContent />
-            </Nprogress>
-          }
-        >
+        <Route path="/" element={<LayoutContent />}>
           {routesLoad(Routers)}
         </Route>
         <Route path="/login/ssologin" element={<div>单点登录</div>}></Route>
