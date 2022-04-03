@@ -11,7 +11,7 @@ const Login = () => {
         src="images/home_bg.svg"
         alt="Home背景图"
       />
-      <div className="relative z-10 w-full h-full min-h-[680px] backdrop-filter backdrop-blur-sm p-10 shadow-2xl flex flex-col sm:rounded-3xl sm:w-2/3 sm:h-4/5">
+      <div className="relative z-10 w-full h-full min-h-[680px] backdrop-filter backdrop-blur-sm p-10 shadow-2xl flex flex-col sm:rounded-3xl sm:w-2/3 sm:h-4/5 dark:bg-white">
         {/* title */}
         <Title />
         {/* content */}

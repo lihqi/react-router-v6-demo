@@ -15,10 +15,16 @@ const Cright = () => {
   const PwdRef = useRef<HTMLInputElement>(null);
 
   const UserFouce = () => {
+    if (userFouce) {
+      return;
+    }
     setUserFouce(true);
     UserRef.current?.focus();
   };
   const PwdFouce = () => {
+    if (pwdFouce) {
+      return;
+    }
     setPwdFouce(true);
     PwdRef.current?.focus();
   };
@@ -42,6 +48,7 @@ const Cright = () => {
       navigate("/", { replace: true });
     }, 1000);
   };
+  console.log("first");
   return (
     <>
       <div className="w-full flex-shrink-0 flex flex-col sm:w-[400px]">
@@ -62,6 +69,7 @@ const Cright = () => {
               userFouce ? "border-blue-500" : ""
             }`}
             onClick={UserFouce}
+            onFocus={UserFouce}
             onBlur={userBlur}
           >
             <UserAddOutlined
@@ -92,6 +100,7 @@ const Cright = () => {
               pwdFouce ? "border-blue-500" : ""
             }`}
             onClick={PwdFouce}
+            onFocus={PwdFouce}
             onBlur={pwdBlur}
           >
             <LockOutlined

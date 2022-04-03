@@ -1,26 +1,30 @@
-// import { useQuery } from "react-query";
-// import { queryCity } from "../api";
-import { useRef } from "react";
+import { useQuery } from "react-query";
 
 const CityDate = () => {
-  const cityRef = useRef("广州");
-  // const { data, isLoading } = useQuery(
-  //   ["city", cityRef.current],
-  //   ({ queryKey }) => queryCity(queryKey[1]),
-  //   {
-  //     refetchOnWindowFocus: false,
-  //   }
-  // );
-  // return (
-  //   <>
-  //     {isLoading ? (
-  //       <>Loading...</>
-  //     ) : (
-  //       " " + data.data.cityname + " " + data.data.weather
-  //     )}
-  //   </>
-  // );
-  return <div>{cityRef.current}</div>;
+  const { data, isLoading } = useQuery(
+    ["weather", "440100"],
+    ({ queryKey }) =>
+      fetch(
+        `https://restapi.amap.com/v3/weather/weatherInfo?extensions=base&output=JSON&city=${queryKey[1]}&key=9e3a557bd203beaf81aa0af83e2e8e82`,
+        {
+          method: "get",
+        }
+      )
+        .then((res) => res.json())
+        .then((res) => res),
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
+  return (
+    <>
+      {isLoading ? (
+        <>Loading...</>
+      ) : (
+        <span>{`${data?.lives[0].city} ${data?.lives[0].weather}`}</span>
+      )}
+    </>
+  );
 };
 
 export default CityDate;
