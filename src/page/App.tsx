@@ -26,11 +26,12 @@ const App = () => {
         <Route path="/" element={<LayoutContent />}>
           {routesLoad(Routers)}
         </Route>
-        <Route path="/login/ssologin" element={<div>单点登录</div>}></Route>
         <Route path="*" element={<NotFount />} />
       </Routes>
     </div>
   );
 };
-
+{
+  /* <Route path="/login/ssologin" element={<div>单点登录</div>}></Route> */
+}
 export default App;

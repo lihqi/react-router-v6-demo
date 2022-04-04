@@ -12,8 +12,13 @@ const Home = () => {
       {isLoading ? (
         <SpinTwitter />
       ) : (
-        <div className="" onClick={() => refetch}>
-          准备开始
+        <div
+          className="bg-white h-full rounded-lg p-5 flex items-center justify-center"
+          onClick={() => refetch}
+        >
+          <div className="text-3xl text-gray-500">
+            欢迎使用蓝峰峰后台管理系统
+          </div>
         </div>
       )}
     </>
