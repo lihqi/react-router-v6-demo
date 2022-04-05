@@ -30,16 +30,18 @@ const LayoutChildren = () => {
       <LayoutHeader />
       <Content className="relative p-5">
         <Suspense fallback={<div>Loading...</div>}>
-          <TransitionGroup component={null} exit={false}>
+          <TransitionGroup component={null}>
             <CSSTransition
               key={transitionKey.pathname}
-              classNames="my-node"
+              classNames="page"
               addEndListener={(node, done) =>
                 node.addEventListener("transitionend", done, false)
               }
               unmountOnExit
             >
-              <Outlet />
+              <div className="page">
+                <Outlet />
+              </div>
             </CSSTransition>
           </TransitionGroup>
         </Suspense>
