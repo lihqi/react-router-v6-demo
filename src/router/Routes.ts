@@ -4,10 +4,6 @@ import {
   AppstoreAddOutlined,
 } from "@ant-design/icons";
 import { lazy, ReactNode } from "react";
-// import Details from "../page/Details";
-// import Home from "../page/Home";
-// import Role from "../page/Role";
-// import Rules from "../page/Rules";
 const Role = lazy(() => import("../page/Role"));
 const Home = lazy(() => import("../page/Home"));
 const Details = lazy(() => import("../page/Details"));
